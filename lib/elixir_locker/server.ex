@@ -84,20 +84,6 @@ defmodule Locker.Server do
       
       defoverridable [init: 1, terminate: 2]
       
-      # Internal API
-      
-      defp lock(name) do
-        case :locker.lock(name, self, @lease_length) do
-          {:ok, w, nodes, writes} ->
-            Process.send_after(self,
-                               {:'$locker_extend_lease', name, self},
-                               @lease_length - @lease_threshold)
-            :ok
-          {:error, :no_quorum} ->
-            {:error, :no_quorum}
-        end
-      end
-      
     end
   end
   
