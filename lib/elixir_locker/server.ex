@@ -12,50 +12,13 @@ defmodule Locker.Server do
       use GenServer
 
       def start(name: name) do
-        GenServer.start(__MODULE__, [name: name], name: {:via, __MODULE__, name})
+        GenServer.start(__MODULE__, [name: name], name: {:via, Locker.Registry, name})
       end
       
       def start_link(name: name) do
-        GenServer.start_link(__MODULE__, [name: name], name: {:via, __MODULE__, name})
+        GenServer.start_link(__MODULE__, [name: name], name: {:via, Locker.Registry, name})
       end
       
-      def whereis_name(name) do
-        case :locker.dirty_read(name) do
-          {:ok, pid} ->
-            pid
-          {:error, :not_found} ->
-            :undefined
-        end
-      end
-      
-      def register_name(name, pid) do
-        case :locker.lock(name, pid, @lease_length) do
-          {:ok, _, _, _} ->
-            Process.send_after(pid,
-                               {:'$locker_extend_lease', name, pid},
-                               @lease_length - @lease_threshold)            
-            :yes
-          {:error, :no_quorum} ->
-            :no
-        end
-      end
-      
-      def unregister_name(name) do
-        pid = whereis_name(name)
-        if pid != :undefined do
-          {:ok, _, _, _} = :locker.release(name, pid)
-        end
-      end
-      
-      def send(name, msg) do
-        pid = whereis_name(name)
-        if pid != :undefined do
-          Kernel.send(pid, msg)
-        else
-          {:badarg, {name, msg}}
-        end
-      end
-
       # GenServer API
       
       def init(name: name) do
