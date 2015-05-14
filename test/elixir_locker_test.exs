@@ -1,6 +1,8 @@
 defmodule LockerTest do
   use ExUnit.Case
 
+  alias Locker.Registry
+  
   defmodule Server do
     use Locker.Server
 
@@ -18,25 +20,25 @@ defmodule LockerTest do
   test "start/1 and terminate" do
     {:ok, pid} = Server.start(name: "test")
 
-    assert Server.whereis_name("test") == pid
-    assert GenServer.call({:via, Server, "test"}, :stop) == :ok
+    assert Registry.whereis_name("test") == pid
+    assert GenServer.call({:via, Registry, "test"}, :stop) == :ok
 
     :timer.sleep(5) # let the process terminate
 
     # make sure that the name was released
-    assert Server.whereis_name("test") == :undefined
+    assert Registry.whereis_name("test") == :undefined
   end
 
   test "start_link/1 and terminate" do
     {:ok, pid} = Server.start_link(name: "test")
     
-    assert Server.whereis_name("test") == pid
-    assert GenServer.call({:via, Server, "test"}, :stop) == :ok
+    assert Registry.whereis_name("test") == pid
+    assert GenServer.call({:via, Registry, "test"}, :stop) == :ok
     
     :timer.sleep(5) # let the process terminate
     
     # make sure that the name was released
-    assert Server.whereis_name("test") == :undefined
+    assert Registry.whereis_name("test") == :undefined
   end
   
 end
