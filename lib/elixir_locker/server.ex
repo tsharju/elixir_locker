@@ -1,4 +1,6 @@
 defmodule Locker.Server do
+
+  import Locker.Registry
   
   @doc false
   defmacro __using__(options) do
@@ -38,7 +40,7 @@ defmodule Locker.Server do
             {:stop, error, state}
         end
       end
-
+      
       def terminate(_reason, _state) do
         name = Process.get(:'$locker_name')
         unregister_name(name)
