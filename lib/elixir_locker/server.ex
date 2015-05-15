@@ -13,12 +13,14 @@ defmodule Locker.Server do
 
       use GenServer
 
-      def start(name: name) do
-        GenServer.start(__MODULE__, [name: name], name: {:via, Locker.Registry, name})
+      def start(args) do
+        name = Keyword.get(args, :name)
+        GenServer.start(__MODULE__, args, name: {:via, Locker.Registry, name})
       end
       
-      def start_link(name: name) do
-        GenServer.start_link(__MODULE__, [name: name], name: {:via, Locker.Registry, name})
+      def start_link(args) do
+        name = Keyword.get(args, :name)
+        GenServer.start_link(__MODULE__, args, name: {:via, Locker.Registry, name})
       end
       
       # GenServer API
