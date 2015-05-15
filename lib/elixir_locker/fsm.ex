@@ -13,14 +13,18 @@ defmodule Locker.Fsm do
 
       @behaviour :gen_fsm
 
-      def start(args) do
-        name = Keyword.fetch!(args, :name)
-        :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, [])
+      def start(args, opts) do
+        name = Keyword.fetch!(opts, :name) # name is required option
+        opts = Keyword.delete(opts, :name)
+        args = Keyword.put(args, :name, name)
+        :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
       
-      def start_link(args) do
-        name = Keyword.fetch!(args, :name)
-        :gen_fsm.start_link({:via, Locker.Registry, name}, __MODULE__, args, [])
+      def start_link(args, opts) do
+        name = Keyword.fetch!(args, :name) # name is required option
+        opts = Keyword.delete(opts, :name)
+        args = Keyword.put(args, :name, name)
+        :gen_fsm.start_link({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
 
       # gen_fsm API

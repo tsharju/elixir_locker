@@ -17,8 +17,8 @@ defmodule LockerTest do
     
   end
 
-  test "start/1 and terminate" do
-    {:ok, pid} = Server.start(name: "test")
+  test "start/2 and terminate" do
+    {:ok, pid} = Server.start([], [name: "test"])
 
     assert Registry.whereis_name("test") == pid
     assert GenServer.call({:via, Registry, "test"}, :stop) == :ok
@@ -29,8 +29,8 @@ defmodule LockerTest do
     assert Registry.whereis_name("test") == :undefined
   end
 
-  test "start_link/1 and terminate" do
-    {:ok, pid} = Server.start_link(name: "test")
+  test "start_link/2 and terminate" do
+    {:ok, pid} = Server.start_link([], [name: "test"])
     
     assert Registry.whereis_name("test") == pid
     assert GenServer.call({:via, Registry, "test"}, :stop) == :ok
