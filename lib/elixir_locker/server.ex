@@ -25,7 +25,8 @@ defmodule Locker.Server do
       
       # GenServer API
       
-      def init(name: name) do
+      def init(args) do
+        name = Keyword.get(args, :name)
         Process.put(:'$locker_name', name)
         {:ok, %{}}
       end

@@ -25,7 +25,8 @@ defmodule Locker.Fsm do
 
       # gen_fsm API
       
-      def init(name: name) do
+      def init(args) do
+        name = Keyword.get(args, :name)
         Process.put(:'$locker_name', name)
         {:ok, :init, %{}}
       end
