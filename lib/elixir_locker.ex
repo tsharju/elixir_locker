@@ -56,8 +56,8 @@ defmodule Locker do
     :locker.release(key, value, timeout)
   end
 
-  def extend_lease(key, value, lease_length \\ 2000, timeout \\ 5000) do
-    :locker.extend_lease(key, value, lease_length, timeout)
+  def extend_lease(key, value, lease_length \\ 2000) do
+    :locker.extend_lease(key, value, lease_length)
   end
 
   def dirty_read(key) do
