@@ -11,7 +11,7 @@ defmodule Locker.Fsm do
 
       @behaviour :gen_fsm
 
-      def start(args, opts) do
+      def start(args, opts \\ []) do
         name = Keyword.get(opts, :name)
         if name != nil do
           opts = Keyword.delete(opts, :name)
@@ -19,7 +19,7 @@ defmodule Locker.Fsm do
         :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
       
-      def start_link(args, opts) do
+      def start_link(args, opts \\ []) do
         name = Keyword.get(args, :name)
         if name != nil do
           opts = Keyword.delete(opts, :name)

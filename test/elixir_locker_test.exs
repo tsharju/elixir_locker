@@ -41,4 +41,16 @@ defmodule LockerTest do
     assert Registry.whereis_name("test") == :undefined
   end
   
+  test "start/2 without opts" do
+    {:ok, pid} = Server.start([])
+    
+    assert is_pid(pid)
+  end
+
+  test "start_link/2 without opts" do
+    {:ok, pid} = Server.start_link([])
+
+    assert is_pid(pid)
+  end
+  
 end

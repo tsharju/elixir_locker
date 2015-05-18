@@ -11,7 +11,7 @@ defmodule Locker.Server do
 
       use GenServer
 
-      def start(args, opts) do
+      def start(args, opts \\ []) do
         name = Keyword.get(opts, :name)
         if name != nil do
           opts = Keyword.put(opts, :name, {:via, Locker.Registry, name})
@@ -20,7 +20,7 @@ defmodule Locker.Server do
         GenServer.start(__MODULE__, args, opts)
       end
         
-      def start_link(args, opts) do
+      def start_link(args, opts \\ []) do
         name = Keyword.get(opts, :name)
         if name != nil do
           opts = Keyword.put(opts, :name, {:via, Locker.Registry, name})
