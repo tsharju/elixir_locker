@@ -1,6 +1,4 @@
 defmodule Locker.Fsm do
-
-  import Locker.Registry
   
   @doc false
   defmacro __using__(options) do
@@ -14,27 +12,23 @@ defmodule Locker.Fsm do
       @behaviour :gen_fsm
 
       def start(args, opts) do
-        name = Keyword.fetch!(opts, :name) # name is required option
-        opts = Keyword.delete(opts, :name)
-        args = Keyword.put(args, :name, name)
+        name = Keyword.get(opts, :name)
+        if name != nil do
+          opts = Keyword.delete(opts, :name)
+        end
         :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
       
       def start_link(args, opts) do
-        name = Keyword.fetch!(args, :name) # name is required option
-        opts = Keyword.delete(opts, :name)
-        args = Keyword.put(args, :name, name)
+        name = Keyword.get(args, :name)
+        if name != nil do
+          opts = Keyword.delete(opts, :name)
+        end
         :gen_fsm.start_link({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
 
       # gen_fsm API
       
-      def init(args) do
-        name = Keyword.fetch!(args, :name)
-        Process.put(:'$locker_name', name)
-        {:ok, :init, %{}}
-      end
-
       def handle_info({:'$locker_extend_lease', key, value}, statename, state) do
         case :locker.extend_lease(key, value, @lease_length) do
           :ok ->
@@ -49,12 +43,11 @@ defmodule Locker.Fsm do
       end
 
       def terminate(_reason, _statename, _state) do
-        name = Process.get(:'$locker_name')
-        unregister_name(name)
+        Locker.registry.unregister
         :ok
       end
       
-      defoverridable [init: 1, terminate: 3]
+      defoverridable [terminate: 3]
       
     end
   end

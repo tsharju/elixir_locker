@@ -1,5 +1,7 @@
 defmodule Locker.Registry do
 
+  require Logger
+  
   @initial_lease_length    5000
   @initial_lease_threshold 500
   
@@ -13,6 +15,10 @@ defmodule Locker.Registry do
   end
   
   def register_name(name, pid) do
+    if pid == self do
+      Process.put(:'$locker_name', name)
+    end
+    
     case :locker.lock(name, pid, @initial_lease_length) do
       {:ok, _, _, _} ->
         Process.send_after(pid,
@@ -29,6 +35,11 @@ defmodule Locker.Registry do
     if pid != :undefined do
       {:ok, _, _, _} = :locker.release(name, pid)
     end
+  end
+
+  def unregister do
+    name = Process.get(:'$locker_name')
+    unregister_name(name)
   end
   
   def send(name, msg) do
