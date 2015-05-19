@@ -15,16 +15,20 @@ defmodule Locker.Fsm do
         name = Keyword.get(opts, :name)
         if name != nil do
           opts = Keyword.delete(opts, :name)
+          :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, opts)
+        else
+          :gen_fsm.start(__MODULE__, args, opts)
         end
-        :gen_fsm.start({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
       
       def start_link(args, opts \\ []) do
-        name = Keyword.get(args, :name)
+        name = Keyword.get(opts, :name)
         if name != nil do
           opts = Keyword.delete(opts, :name)
+          :gen_fsm.start_link({:via, Locker.Registry, name}, __MODULE__, args, opts)
+        else
+          :gen_fsm.start_link(__MODULE__, args, opts)
         end
-        :gen_fsm.start_link({:via, Locker.Registry, name}, __MODULE__, args, opts)
       end
 
       # gen_fsm API
@@ -41,13 +45,26 @@ defmodule Locker.Fsm do
             {:stop, error, state}
         end
       end
-
+      
+      def handle_event(_event, _statename, state) do
+        {:stop, :not_implemented, state}
+      end
+      
+      def handle_sync_event(_event, _from, statename, state) do
+        {:stop, :not_implemented, {:error, :not_implemented}, state}
+      end
+      
+      def code_change(_oldvsn, statename, state, _extra) do
+        {:ok, statename, state}
+      end
+      
       def terminate(_reason, _statename, _state) do
-        Locker.registry.unregister
+        Locker.Registry.unregister
         :ok
       end
       
-      defoverridable [terminate: 3]
+      defoverridable [handle_event: 3, handle_sync_event: 4,
+                      code_change: 4, terminate: 3]
       
     end
   end
