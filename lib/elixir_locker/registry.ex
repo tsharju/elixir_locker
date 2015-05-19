@@ -9,6 +9,8 @@ defmodule Locker.Registry do
         pid
       {:error, :not_found} ->
         :undefined
+      {:error, :no_quorum} ->
+        :undefined
     end
   end
   
