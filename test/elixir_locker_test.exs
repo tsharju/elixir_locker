@@ -1,6 +1,4 @@
 defmodule LockerTest do
-  require Logger
-  
   use ExUnit.Case
 
   alias Locker.Registry
@@ -33,7 +31,6 @@ defmodule LockerTest do
     end
 
     def terminate(reason, statename, state) do
-      Logger.warn "Fsm.terminate/3."
       super(reason, statename, state)
       :ok
     end
