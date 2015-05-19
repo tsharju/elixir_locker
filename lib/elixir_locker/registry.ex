@@ -1,7 +1,5 @@
 defmodule Locker.Registry do
 
-  require Logger
-  
   @initial_lease_length    5000
   @initial_lease_threshold 500
   
