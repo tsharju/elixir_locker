@@ -10,7 +10,7 @@ defmodule Locker.Mixfile do
      name: "Locker",
      source_url: "https://github.com/tsharju/elixir_locker",
      homepage_url: "https://github.com/tsharju/elixir_locker",
-     readme: "README.md",
+     docs: docs,
      deps: deps]
   end
 
@@ -36,6 +36,12 @@ defmodule Locker.Mixfile do
         {:earmark, "~> 0.1", only: :dev},
         {:ex_doc, "~> 0.7", only: :dev},
         {:locker, git: "https://github.com/wooga/locker.git", tag: "v6"}
+    ]
+  end
+
+  defp docs do
+    [
+        readme: "README.md"
     ]
   end
 end
