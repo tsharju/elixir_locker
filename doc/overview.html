@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overview</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">Locker v0.0.1 &rarr; <a href="overview.html">Overview</a></div>
+
+      <h1>Locker v0.0.1</h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#modules_summary">Modules</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <h2 id="modules_summary">Modules summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="Locker.html">Locker</a></td>
+  
+    <td class="summary_synopsis"><p>Provides Elixir API to locker Erlang library as well
+as some utilities that make using locker easier</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Locker.Fsm.html">Locker.Fsm</a></td>
+  
+    <td class="summary_synopsis"><p>A utility module that helps in creating <code class="inline">:gen_fsm</code> processes that
+are registered in <code class="inline">locker</code>. Options are similar to the ones with
+<a href="Locker.Server.html"><code class="inline">Locker.Server</code></a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Locker.Registry.html">Locker.Registry</a></td>
+  
+    <td class="summary_synopsis"><p>This module provides a global process registry using <code class="inline">locker</code> Erlang
+library as the storage backend. It supports e.g., the <code class="inline">GenServer</code>‘s
+<code class="inline">{:via, module, term}</code> API</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Locker.Server.html">Locker.Server</a></td>
+  
+    <td class="summary_synopsis"><p>A utility module that helps in creating <code class="inline">GenServer</code> processes that
+are registered in <code class="inline">locker.</code> This module implements functions for
+keeping up the registration. It accepts two parameters, namely
+<code class="inline">:lease_length</code> and <code class="inline">:lease_threshold</code>, which defaults to 5 seconds
+and one second. Based on these options, the process registration is
+updated in the progess registry</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

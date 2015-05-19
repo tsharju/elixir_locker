@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Locker.Server</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">Locker v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Locker.html">Locker</a> &rarr; <a href="Locker.Server.html">Server</a></div>
+      <h1>
+        Locker.Server
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>A utility module that helps in creating <code class="inline">GenServer</code> processes that
+are registered in <code class="inline">locker.</code> This module implements functions for
+keeping up the registration. It accepts two parameters, namely
+<code class="inline">:lease_length</code> and <code class="inline">:lease_threshold</code>, which defaults to 5 seconds
+and one second. Based on these options, the process registration is
+updated in the progess registry.</p>
+<h2>Example</h2>
+<p>You can create a standard <code class="inline">GenServer</code> process that is registered
+under <code class="inline">locker</code> like this:</p>
+<pre><code class="elixir">defmodule MyServer do
+  use Locker.Server, lease_length: 10000
+
+  def init(_) do
+    {:ok, %{}}
+  end
+end</code></pre>
+<p>Note that <a href="Locker.Server.html"><code class="inline">Locker.Server</code></a> provides <code class="inline">start/2</code> and <code class="inline">start_link/2</code>
+functions that you don’t need to implement yourself. If the <code class="inline">opts</code>
+contains key <code class="inline">name</code>, this name will be registered under
+<a href="Locker.Registry.html"><code class="inline">Locker.Registry</code></a>.</p>
+<p>Note also that if you need to override <code class="inline">terminate/2</code> to do some
+cleaning up, you need to remember to add call to `super(reason,
+state)` so that the process will be unregistered on termination.</p>
+<pre><code class="elixir">defmodule MyServer do
+  use Locker.Server
+
+  def init(_) do
+    {:ok, %{}}
+  end
+
+  def terminate(reason, state) do
+    super(reason, state) # will call Locker.Server.terminate/2.
+  end
+end</code></pre>
+
+        </section>
+      
+
+      
+        <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/server.ex#L1" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

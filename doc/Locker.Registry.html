@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Locker.Registry</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">Locker v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Locker.html">Locker</a> &rarr; <a href="Locker.Registry.html">Registry</a></div>
+      <h1>
+        Locker.Registry
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>This module provides a global process registry using <code class="inline">locker</code> Erlang
+library as the storage backend. It supports e.g., the <code class="inline">GenServer</code>‘s
+<code class="inline">{:via, module, term}</code> API.</p>
+<h2>Example</h2>
+<p>You can spawn a regular <code class="inline">GenServer</code> process that will be registered
+to <code class="inline">locker</code> using the GenServer API directly.</p>
+<pre><code class="elixir">GenServer.start([], [name: {:via, Locker.Registry, &quot;my_process&quot;}])</code></pre>
+<p>Note that when using <code class="inline">GenServer</code>, you will need to refresh the registration
+using <a href="Locker.html#extend_lease/3"><code class="inline">Locker.extend_lease/3</code></a>. To avoid this, you should use
+<a href="Locker.Server.html"><code class="inline">Locker.Server</code></a> instead of <code class="inline">GenServer</code> directly.</p>
+<p>You can find out the process id of the named process using
+<code class="inline">Locker.Registry.whereis_name</code>.</p>
+<pre><code class="elixir">Locker.Registry.whereis_name(&quot;my_process&quot;)
+#=&gt; {:ok, pid}</code></pre>
+<p>You can uregister the named process by calling
+<code class="inline">Locker.Registry.unregister</code>.</p>
+<pre><code class="elixir">Locker.Registry.unregister(&quot;my_process&quot;)</code></pre>
+
+        </section>
+      
+
+      
+        <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L1" class="view_source">Source</a>
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#register_name/2">register_name(name, pid)</a></td>
+  
+    <td class="summary_synopsis"><p>Registers the given <code class="inline">pid</code> to a <code class="inline">name</code> globally</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send/2">send(name, msg)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a message to the given <code class="inline">name</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unregister/0">unregister()</a></td>
+  
+    <td class="summary_synopsis"><p>Unregisters the calling process</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unregister_name/1">unregister_name(name)</a></td>
+  
+    <td class="summary_synopsis"><p>Unregisters the given <code class="inline">name</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#whereis_name/1">whereis_name(name)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds the process identifier for the given <code class="inline">name</code></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="register_name/2">
+    <span class="signature"><strong>register_name(name, pid)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#register_name/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>register_name(any, pid) :: :yes | :no</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Registers the given <code class="inline">pid</code> to a <code class="inline">name</code> globally.</p>
+
+  </section>
+  
+    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L53" class="view_source">Source</a>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="send/2">
+    <span class="signature"><strong>send(name, msg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send(any, any) :: :ok | {:badarg, {any, any}}</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Sends a message to the given <code class="inline">name</code>.</p>
+
+  </section>
+  
+    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L93" class="view_source">Source</a>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unregister/0">
+    <span class="signature"><strong>unregister()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unregister/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unregister :: nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Unregisters the calling process.</p>
+
+  </section>
+  
+    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L84" class="view_source">Source</a>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="unregister_name/1">
+    <span class="signature"><strong>unregister_name(name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#unregister_name/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>unregister_name(any) :: nil</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Unregisters the given <code class="inline">name</code>.</p>
+
+  </section>
+  
+    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L73" class="view_source">Source</a>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="whereis_name/1">
+    <span class="signature"><strong>whereis_name(name)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#whereis_name/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>whereis_name(any) :: pid | :undefined</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Finds the process identifier for the given <code class="inline">name</code>.</p>
+
+  </section>
+  
+    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/registry.ex#L38" class="view_source">Source</a>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
