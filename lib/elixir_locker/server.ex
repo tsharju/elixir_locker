@@ -1,4 +1,47 @@
 defmodule Locker.Server do
+
+  @moduledoc """
+  A utility module that helps in creating `GenServer` processes that
+  are registered in `locker.` This module implements functions for
+  keeping up the registration. It accepts two parameters, namely
+  `:lease_length` and `:lease_threshold`, which defaults to 5 seconds
+  and one second. Based on these options, the process registration is
+  updated in the progess registry.
+
+  ## Example
+
+  You can create a standard `GenServer` process that is registered
+  under `locker` like this:
+
+      defmodule MyServer do
+        use Locker.Server, lease_length: 10000
+
+        def init(_) do
+          {:ok, %{}}
+        end
+      end
+
+  Note that `Locker.Server` provides `start/2` and `start_link/2`
+  functions that you don't need to implement yourself. If the `opts`
+  contains key `name`, this name will be registered under
+  `Locker.Registry`.
+
+  Note also that if you need to override `terminate/2` to do some
+  cleaning up, you need to remember to add call to `super(reason,
+  state)` so that the process will be unregistered on termination.
+
+      defmodule MyServer do
+        use Locker.Server
+
+        def init(_) do
+          {:ok, %{}}
+        end
+
+        def terminate(reason, state) do
+          super(reason, state) # will call Locker.Server.terminate/2.
+        end
+      end
+  """
   
   @doc false
   defmacro __using__(options) do

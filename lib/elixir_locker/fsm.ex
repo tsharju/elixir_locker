@@ -1,4 +1,31 @@
 defmodule Locker.Fsm do
+
+  @moduledoc """
+  A utility module that helps in creating `:gen_fsm` processes that
+  are registered in `locker`. Options are similar to the ones with
+  `Locker.Server`.
+
+  ## Example
+
+  You can create a standard `:gen_fsm` process that is registered
+  under `locker` like this:
+
+      defmodule MyFsm do
+        use Locker.Fsm, lease_length: 10000
+
+        def init(_) do
+          {:ok, :initial_state, %{}}
+        end
+      end
+
+  Similar to `Locker.Server`, this module also implements `start/2`
+  and `start_link/2` functions and if the `opts` contain a key `name`
+  the process will be registered by that name under `Locker.Registry`.
+ 
+  When overriding `terminate/3` you will need to add call to
+  `super(reason, statename, state)` similarly to `Locker.Server` so
+  that the process will be properly unregistered during termination.
+  """
   
   @doc false
   defmacro __using__(options) do
