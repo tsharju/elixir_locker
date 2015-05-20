@@ -69,18 +69,18 @@ defmodule Locker.Registry do
   @doc """
   Unregisters the given `name`.
   """
-  @spec unregister_name(any) :: nil
+  @spec unregister_name(any) :: any
   def unregister_name(name) do
     pid = whereis_name(name)
     if pid != :undefined do
-      {:ok, _, _, _} = :locker.release(name, pid)
+      :locker.release(name, pid)
     end
   end
-
+  
   @doc """
   Unregisters the calling process.
   """
-  @spec unregister :: nil
+  @spec unregister :: any
   def unregister do
     name = Process.get(:'$locker_name')
     unregister_name(name)
