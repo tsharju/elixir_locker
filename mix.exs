@@ -3,7 +3,8 @@ defmodule Locker.Mixfile do
 
   def project do
     [app: :elixir_locker,
-     version: "0.1.1",
+     version: "0.1.2",
+     description: "Elixir wrapper for the locker Erlang library.",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -11,7 +12,8 @@ defmodule Locker.Mixfile do
      source_url: "https://github.com/tsharju/elixir_locker",
      homepage_url: "https://github.com/tsharju/elixir_locker",
      docs: docs,
-     deps: deps]
+     deps: deps,
+     package: package]
   end
 
   # Configuration for the OTP application
@@ -35,13 +37,22 @@ defmodule Locker.Mixfile do
     [
         {:earmark, "~> 0.1", only: :dev},
         {:ex_doc, "~> 0.7", only: :dev},
-        {:locker, git: "https://github.com/wooga/locker.git", tag: "v6"}
+        {:locker, github: "wooga/locker", tag: "v6"}
     ]
   end
 
   defp docs do
     [
         readme: "README.md"
+    ]
+  end
+
+  defp package do
+    [
+        files: ~w(lib mix.exs README.md LICENSE),
+        contributors: ["Teemu Harju"],
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/tsharju/elixir_locker"}
     ]
   end
 end
