@@ -37,7 +37,7 @@ defmodule Locker.Mixfile do
     [
         {:earmark, "~> 0.1", only: :dev},
         {:ex_doc, "~> 0.7", only: :dev},
-        {:locker, github: "wooga/locker", tag: "v6"}
+        {:locker, "~> 1.0.6"}
     ]
   end
 
