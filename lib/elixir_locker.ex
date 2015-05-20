@@ -28,7 +28,7 @@ defmodule Locker do
     cluster = [Node.self | Node.list]
     primaries = cluster
     replicas = []
-    quorum = Application.get_env(:locker, :quorum, 0)
+    quorum = Application.get_env(:elixir_locker, :quorum, 0)
     
     children = [worker(:locker, [quorum])]
     opts = [strategy: :one_for_one, name: Locker.Supervisor]
