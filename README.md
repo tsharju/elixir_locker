@@ -20,11 +20,13 @@ Installing
 
 You can install `Locker` by adding it as a dependency to your project's `mix.exs` file:
 
-> defp deps do
->   [
->     {:elixir_locker, "~>v0.1.3"}
->   ]
-> end
+```elixir
+defp deps do
+  [
+    {:elixir_locker, "~>v0.1.3"}
+  ]
+end
+```
 
 Also, remember to add `:elixir_locker` to your `:applications` list if you wish that the `Locker` application is started automatically.
 
