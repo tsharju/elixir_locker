@@ -13,7 +13,7 @@ A quote from https://github.com/wooga/locker:
 
 The `Locker` module implements an OTP application that runs `locker`. In addition to that is also provides a wrapper for the `locker` API, just for convenience.
 
-Idea of `Locker` is to provide an abstration for globally registering `GenServer` or `:gen_fsm` processes to `:locker` key-value store in a cluster of Erlang servers. These are implemented in `Locker.Server` and `Locker.Fsm` modules. In the simplest case, all you have to do is replace `use GenServer` with `use Locker.Server` and your process is automatically registered to global `:locker` cluster.
+Idea of `Locker` is to provide an abstraction for globally registering `GenServer` or `:gen_fsm` processes to `:locker` key-value store in a cluster of Erlang servers. These are implemented in `Locker.Server` and `Locker.Fsm` modules. In the simplest case, all you have to do is replace `use GenServer` with `use Locker.Server` and your process is automatically registered to global `:locker` cluster.
 
 Installing
 ----------
