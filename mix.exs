@@ -3,7 +3,7 @@ defmodule Locker.Mixfile do
 
   def project do
     [app: :elixir_locker,
-     version: "0.1.3",
+     version: "0.1.4-dev",
      description: "Elixir wrapper for the locker Erlang library.",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
