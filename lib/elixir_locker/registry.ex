@@ -28,8 +28,8 @@ defmodule Locker.Registry do
       Locker.Registry.unregister("my_process")
   """
   
-  @initial_lease_length    5000
-  @initial_lease_threshold 500
+  @initial_lease_length    30000
+  @initial_lease_threshold 1000
 
   @doc """
   Finds the process identifier for the given `name`.
