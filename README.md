@@ -23,7 +23,7 @@ You can install `Locker` by adding it as a dependency to your project's `mix.exs
 ```elixir
 defp deps do
   [
-    {:elixir_locker, "~>v0.1.3"}
+    {:elixir_locker, "~> 0.1.3"}
   ]
 end
 ```
