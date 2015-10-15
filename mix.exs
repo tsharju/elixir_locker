@@ -3,7 +3,7 @@ defmodule Locker.Mixfile do
 
   def project do
     [app: :elixir_locker,
-     version: "0.1.4-dev",
+     version: "0.1.4",
      description: "Elixir wrapper for the locker Erlang library.",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
@@ -35,9 +35,9 @@ defmodule Locker.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-        {:earmark, "~> 0.1", only: :dev},
-        {:ex_doc, "~> 0.7", only: :dev},
-        {:locker, "~> 1.0.6"}
+      {:earmark, "~> 0.1", only: :dev},
+      {:ex_doc, "~> 0.7", only: :dev},
+      {:locker, git: "https://github.com/wooga/locker.git", branch: "master"}
     ]
   end
 
