@@ -50,7 +50,7 @@ defmodule Locker.Mixfile do
   defp package do
     [
         files: ~w(lib mix.exs README.md LICENSE),
-        contributors: ["Teemu Harju"],
+        maintainers: ["Teemu Harju"],
         licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/tsharju/elixir_locker"}
     ]
