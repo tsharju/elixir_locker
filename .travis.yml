@@ -2,5 +2,11 @@ language: elixir
 notifications:
   recipients:
     - teemu.harju@gmail.com
+elixir:
+  - 1.0.0
+  - 1.1.0
 otp_release:
   - 17.0
+  - 18.0
+
+
