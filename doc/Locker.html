@@ -1,49 +1,73 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
-    <title>Locker</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Locker – Locker v0.1.4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.10.0">
+    <link rel="stylesheet" href="dist/app.css" />
+    <script src="dist/sidebar_items.js"></script>
   </head>
+  <body data-type="modules">
 
-  <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
+    <div class="main">
+<button class="sidebar-toggle">
+  <i class="icon-menu"></i>
+</button>
+<section class="sidebar">
+  <button class="sidebar-toggle">
+    <i class="icon-menu"></i>
+  </button>
 
-    <section id="content">
-      <div class="breadcrumbs">Locker v0.1.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Locker.html">Locker</a></div>
+  
+  <a href="extra-api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        Locker
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.4
+      </h2>
+    </div>
+    
+  </a>
+
+  <div class="sidebar-search">
+    <i class="icon-search"></i>
+    <input type="text" class="sidebar-searchInput" placeholder="search" autocomplete="off" />
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+
+  <ul id="full-list" class="sidebar-fullList"></ul>
+  <div class="sidebar-noResults"></div>
+</section>
+
+<section class="content">
+  <div id="content" class="content-inner">
+
+
       <h1>
         Locker
         
+        
+          <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L1" title="View Source" class="view-source" rel="help">
+            <i class="icon-code"></i>
+          </a>
+        
       </h1>
-
-      <ul class="summary_links">
-        
-          <li><a href="#summary">Summary</a></li>
-        
-        
-          <li><a href="#types_details">Types</a></li>
-        
-        
-          <li><a href="#functions_details">Functions</a></li>
-        
-        
-        
-      </ul>
 
       
         <section id="moduledoc" class="docstring">
@@ -64,147 +88,216 @@ running locker registered processes. See <a href="Locker.Server.html"><code clas
       
 
       
-        <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L1" class="view_source">Source</a>
-      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <i class="icon-link"></i>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:reply/0">reply()</a>
+  </div>
+  
+</div>
 
-      
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
-  <td class="summary_signature"><a href="#dirty_read/1">dirty_read(key)</a></td>
+  </div>
+
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#dirty_read/1">dirty_read(key)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Read the <code class="inline">value</code> for the given <code class="inline">key</code></p>
-</td>
+    <div class="summary-synopsis"><p>Read the <code class="inline">value</code> for the given <code class="inline">key</code></p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#extend_lease/3">extend_lease(key, value, lease_length \\ 2000)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#extend_lease/3">extend_lease(key, value, lease_length \\ 2000)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Extends the lease on given <code class="inline">key</code> and <code class="inline">value</code></p>
-</td>
+    <div class="summary-synopsis"><p>Extends the lease on given <code class="inline">key</code> and <code class="inline">value</code></p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#lag/0">lag()</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#lag/0">lag()</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Provides a lag metric for the cluster</p>
-</td>
+    <div class="summary-synopsis"><p>Provides a lag metric for the cluster</p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#lock/4">lock(key, value, lease_length \\ 2000, timeout \\ 5000)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#lock/4">lock(key, value, lease_length \\ 2000, timeout \\ 5000)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Tries to acquire the lock</p>
-</td>
+    <div class="summary-synopsis"><p>Tries to acquire the lock</p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#master_dirty_read/1">master_dirty_read(key)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#master_dirty_read/1">master_dirty_read(key)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Execute a dirty read on the master. Same caveats as for
+    <div class="summary-synopsis"><p>Execute a dirty read on the master. Same caveats as for
 <a href="#dirty_read/1"><code class="inline">dirty_read/1</code></a></p>
-</td>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#release/3">release(key, value, timeout \\ 5000)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#release/3">release(key, value, timeout \\ 5000)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Releases the lock on given <code class="inline">key</code>. The <code class="inline">value</code> needs to match to the
+    <div class="summary-synopsis"><p>Releases the lock on given <code class="inline">key</code>. The <code class="inline">value</code> needs to match to the
 locked value</p>
-</td>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#set_nodes/3">set_nodes(cluster, primaries, replicas)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_nodes/3">set_nodes(cluster, primaries, replicas)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Sets the primaries and replicas for the given
+    <div class="summary-synopsis"><p>Sets the primaries and replicas for the given
 cluster. Assumes no failures</p>
-</td>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#set_w/2">set_w(cluster, w)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_w/2">set_w(cluster, w)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Sets the desired write quorum for the given cluster</p>
-</td>
+    <div class="summary-synopsis"><p>Sets the desired write quorum for the given cluster</p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start/2">start(type, args)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start/2">start(type, args)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Callback implementation for <code class="inline">c::application.start/2</code></p>
-</td>
+    <div class="summary-synopsis"><p>Callback implementation for <code class="inline">c::application.start/2</code></p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#summary/0">summary()</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#summary/0">summary()</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Some internal stats</p>
-</td>
+    <div class="summary-synopsis"><p>Some internal stats</p>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#update/4">update(key, value, new_value, timeout \\ 5000)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update/4">update(key, value, new_value, timeout \\ 5000)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Tries to update the lock. The update only happens if an
+    <div class="summary-synopsis"><p>Tries to update the lock. The update only happens if an
 existing value of the lock corresponds to the given <code class="inline">value</code> within the
 <code class="inline">w</code> number of master nodes</p>
-</td>
+</div>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#wait_for/2">wait_for(key, timeout \\ 5000)</a></td>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#wait_for/2">wait_for(key, timeout \\ 5000)</a>
+  </div>
   
-    <td class="summary_synopsis"><p>Waits for the key to become available on the local node. If a value
+    <div class="summary-synopsis"><p>Waits for the key to become available on the local node. If a value
 is already available, returns immediately, otherwise it will return
 within the <code class="inline">timeout</code>. In case of timeout, the caller might get a reply
 anyway if it sent at the same time as the timeout</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#wait_for_release/2">wait_for_release(key, timeout \\ 5000)</a></td>
-  
-    <td class="summary_synopsis"><p>Waits for the key to be released</p>
-</td>
-  
-</tr>
-
-        </table>
-      
-
-      
-        <section id="types_details" class="details_list">
-          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
-          <div class="type_detail">
-  <p class="typespec" id="t:reply/0">
-    <a href="#t:reply/0">reply</a> :: {:ok, pos_integer, pos_integer, pos_integer}
-  </p>
+</div>
   
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#wait_for_release/2">wait_for_release(key, timeout \\ 5000)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Waits for the key to be released</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+          
 
         </section>
       
 
       
-        <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
-          <section class="detail">
-  <div class="detail_header" id="dirty_read/1">
-    <span class="signature"><strong>dirty_read(key)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#dirty_read/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+        <section id="types" class="types details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <i class="icon-link"></i>
+            </a>
+            Types
+          </h1>
+          <div class="types-list">
+            <div id="t:reply/0" class="type-detail">
+  <pre><code class="elixir"><a href="#t:reply/0">reply</a> :: {:ok, pos_integer, pos_integer, pos_integer}</code></pre>
+  
+</div>
+
+          </div>
+        </section>
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <i class="icon-link"></i>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="dirty_read/1">
+  <div class="detail-header">
+    <a href="#dirty_read/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">dirty_read(key)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L129" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>dirty_read(any) :: {:ok, any} | {:error, :not_found}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">dirty_read(any) :: {:ok, any} | {:error, :not_found}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Read the <code class="inline">value</code> for the given <code class="inline">key</code>.</p>
@@ -213,247 +306,275 @@ guaranteed. The value is read directly from a local ETS-table, so
 the performance should be very high.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L129" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="extend_lease/3">
-    <span class="signature"><strong>extend_lease(key, value, lease_length \\ 2000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#extend_lease/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="extend_lease/3">
+  <div class="detail-header">
+    <a href="#extend_lease/3" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">extend_lease(key, value, lease_length \\ 2000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L117" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>extend_lease(any, any, pos_integer) :: <a href="#t:reply/0">reply</a> | {:error, :no_quorum}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">extend_lease(any, any, pos_integer) ::
+  <a href="#t:reply/0">reply</a> |
+  {:error, :no_quorum}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Extends the lease on given <code class="inline">key</code> and <code class="inline">value</code>.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L117" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="lag/0">
-    <span class="signature"><strong>lag()</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#lag/0" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="lag/0">
+  <div class="detail-header">
+    <a href="#lag/0" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">lag()</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L146" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>lag :: {number, <a href="#t:reply/0">reply</a>}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">lag :: {number, <a href="#t:reply/0">reply</a>}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Provides a lag metric for the cluster.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L146" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="lock/4">
-    <span class="signature"><strong>lock(key, value, lease_length \\ 2000, timeout \\ 5000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#lock/4" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="lock/4">
+  <div class="detail-header">
+    <a href="#lock/4" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">lock(key, value, lease_length \\ 2000, timeout \\ 5000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L71" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>lock(any, any, pos_integer, pos_integer) :: <a href="#t:reply/0">reply</a> | {:error, :no_quorum}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">lock(any, any, pos_integer, pos_integer) ::
+  <a href="#t:reply/0">reply</a> |
+  {:error, :no_quorum}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Tries to acquire the lock.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L71" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="master_dirty_read/1">
-    <span class="signature"><strong>master_dirty_read(key)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#master_dirty_read/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="master_dirty_read/1">
+  <div class="detail-header">
+    <a href="#master_dirty_read/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">master_dirty_read(key)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L138" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>master_dirty_read(any) :: {:ok, any} | {:error, :not_found}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">master_dirty_read(any) ::
+  {:ok, any} |
+  {:error, :not_found}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Execute a dirty read on the master. Same caveats as for
 <a href="#dirty_read/1"><code class="inline">dirty_read/1</code></a>.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L138" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="release/3">
-    <span class="signature"><strong>release(key, value, timeout \\ 5000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#release/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="release/3">
+  <div class="detail-header">
+    <a href="#release/3" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">release(key, value, timeout \\ 5000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L109" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>release(any, any, pos_integer) :: <a href="#t:reply/0">reply</a> | {:error, :no_quorum}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">release(any, any, pos_integer) ::
+  <a href="#t:reply/0">reply</a> |
+  {:error, :no_quorum}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Releases the lock on given <code class="inline">key</code>. The <code class="inline">value</code> needs to match to the
 locked value.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L109" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="set_nodes/3">
-    <span class="signature"><strong>set_nodes(cluster, primaries, replicas)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#set_nodes/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="set_nodes/3">
+  <div class="detail-header">
+    <a href="#set_nodes/3" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">set_nodes(cluster, primaries, replicas)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L63" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>set_nodes([atom], [atom], [atom] | []) :: :ok</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">set_nodes([atom], [atom], [atom] | []) :: :ok</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Sets the primaries and replicas for the given
 cluster. Assumes no failures.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L63" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="set_w/2">
-    <span class="signature"><strong>set_w(cluster, w)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#set_w/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="set_w/2">
+  <div class="detail-header">
+    <a href="#set_w/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">set_w(cluster, w)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L54" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>set_w([atom], pos_integer) :: :ok</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">set_w([atom], pos_integer) :: :ok</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Sets the desired write quorum for the given cluster.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L54" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="start/2">
-    <span class="signature"><strong>start(type, args)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#start/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="start/2">
+  <div class="detail-header">
+    <a href="#start/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">start(type, args)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L24" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
   <section class="docstring">
     <p>Callback implementation for <code class="inline">c::application.start/2</code>.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L24" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="summary/0">
-    <span class="signature"><strong>summary()</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#summary/0" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="summary/0">
+  <div class="detail-header">
+    <a href="#summary/0" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">summary()</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L154" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>summary :: [write_locks: pos_integer, leases: pos_integer]</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">summary :: [write_locks: pos_integer, leases: pos_integer]</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Some internal stats.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L154" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="update/4">
-    <span class="signature"><strong>update(key, value, new_value, timeout \\ 5000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#update/4" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="update/4">
+  <div class="detail-header">
+    <a href="#update/4" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">update(key, value, new_value, timeout \\ 5000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L81" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>update(any, any, pos_integer, pos_integer) :: <a href="#t:reply/0">reply</a> | {:error, :no_quorum}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">update(any, any, pos_integer, pos_integer) ::
+  <a href="#t:reply/0">reply</a> |
+  {:error, :no_quorum}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Tries to update the lock. The update only happens if an
@@ -461,26 +582,28 @@ existing value of the lock corresponds to the given <code class="inline">value</
 <code class="inline">w</code> number of master nodes.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L81" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="wait_for/2">
-    <span class="signature"><strong>wait_for(key, timeout \\ 5000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#wait_for/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="wait_for/2">
+  <div class="detail-header">
+    <a href="#wait_for/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">wait_for(key, timeout \\ 5000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L92" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>wait_for(any, pos_integer) :: {:ok, any}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">wait_for(any, pos_integer) :: {:ok, any}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Waits for the key to become available on the local node. If a value
@@ -489,35 +612,34 @@ within the <code class="inline">timeout</code>. In case of timeout, the caller m
 anyway if it sent at the same time as the timeout.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L92" class="view_source">Source</a>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="wait_for_release/2">
-    <span class="signature"><strong>wait_for_release(key, timeout \\ 5000)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#wait_for_release/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="detail" id="wait_for_release/2">
+  <div class="detail-header">
+    <a href="#wait_for_release/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">wait_for_release(key, timeout \\ 5000)</span>
+      
+      <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L100" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>wait_for_release(any, pos_integer) :: {:ok, any}</li>
-      
-    </ul>
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">wait_for_release(any, pos_integer) :: {:ok, any}</code></pre>
+        
+      </div>
+    </div>
   
   <section class="docstring">
     <p>Waits for the key to be released.</p>
 
   </section>
-  
-    <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker.ex#L100" class="view_source">Source</a>
-  
-</section>
+</div>
 
         </section>
       
@@ -525,6 +647,22 @@ anyway if it sent at the same time as the timeout.</p>
       
 
       
-    </section>
+        <footer class="footer">
+      <p>
+        <span class="line">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.10.0),
+        </span>
+        <span class="line">
+          designed by
+          <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+      </p>
+    </footer>
+  </div>
+</section>
+</div>
+    <script src="dist/app.js"></script>
   </body>
 </html>
+

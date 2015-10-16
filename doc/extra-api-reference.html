@@ -1,18 +1,18 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Locker.Server – Locker v0.1.4</title>
+    <title>API Reference – Locker v0.1.4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.10.0">
     <link rel="stylesheet" href="dist/app.css" />
     <script src="dist/sidebar_items.js"></script>
   </head>
-  <body data-type="modules">
+  <body data-type="extras">
 
-    <div class="main">
+<div class="main">
 <button class="sidebar-toggle">
   <i class="icon-menu"></i>
 </button>
@@ -58,67 +58,67 @@
 <section class="content">
   <div id="content" class="content-inner">
 
+  <h1>API Reference</h1>
 
-      <h1>
-        Locker.Server
-        
-        
-          <a href="https://github.com/tsharju/elixir_locker/blob/master/lib/elixir_locker/server.ex#L1" title="View Source" class="view-source" rel="help">
-            <i class="icon-code"></i>
-          </a>
-        
-      </h1>
+  <ul class="summary-links">
+    
+      <li><a href="#modules">Modules</a></li>
+    
+    
+    
+  </ul>
 
-      
-        <section id="moduledoc" class="docstring">
-          <p>A utility module that helps in creating <code class="inline">GenServer</code> processes that
+  
+    <section id="modules" class="details-list">
+      <h1 class="section-heading">Modules</h1>
+      <div class="summary">
+        <div class="summary-row">
+  <div class="summary-signature"><a href="Locker.html">Locker</a></div>
+  
+    <div class="summary-synopsis"><p>Provides Elixir API to locker Erlang library as well
+as some utilities that make using locker easier</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature"><a href="Locker.Fsm.html">Locker.Fsm</a></div>
+  
+    <div class="summary-synopsis"><p>A utility module that helps in creating <code class="inline">:gen_fsm</code> processes that
+are registered in <code class="inline">locker</code>. Options are similar to the ones with
+<a href="Locker.Server.html"><code class="inline">Locker.Server</code></a></p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature"><a href="Locker.Registry.html">Locker.Registry</a></div>
+  
+    <div class="summary-synopsis"><p>This module provides a global process registry using <code class="inline">locker</code> Erlang
+library as the storage backend. It supports e.g., the <code class="inline">GenServer</code>‘s
+<code class="inline">{:via, module, term}</code> API</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature"><a href="Locker.Server.html">Locker.Server</a></div>
+  
+    <div class="summary-synopsis"><p>A utility module that helps in creating <code class="inline">GenServer</code> processes that
 are registered in <code class="inline">locker.</code> This module implements functions for
 keeping up the registration. It accepts two parameters, namely
 <code class="inline">:lease_length</code> and <code class="inline">:lease_threshold</code>, which defaults to 5 seconds
 and one second. Based on these options, the process registration is
-updated in the progess registry.</p>
-<h2>Example</h2>
-<p>You can create a standard <code class="inline">GenServer</code> process that is registered
-under <code class="inline">locker</code> like this:</p>
-<pre><code class="elixir">defmodule MyServer do
-  use Locker.Server, lease_length: 10000
+updated in the progess registry</p>
+</div>
+  
+</div>
 
-  def init(_) do
-    {:ok, %{}}
-  end
-end</code></pre>
-<p>Note that <a href="Locker.Server.html#content"><code class="inline">Locker.Server</code></a> provides <code class="inline">start/2</code> and <code class="inline">start_link/2</code>
-functions that you don’t need to implement yourself. If the <code class="inline">opts</code>
-contains key <code class="inline">name</code>, this name will be registered under
-<a href="Locker.Registry.html"><code class="inline">Locker.Registry</code></a>.</p>
-<p>Note also that if you need to override <code class="inline">terminate/2</code> to do some
-cleaning up, you need to remember to add call to `super(reason,
-state)` so that the process will be unregistered on termination.</p>
-<pre><code class="elixir">defmodule MyServer do
-  use Locker.Server
+      </div>
+    </section>
+  
 
-  def init(_) do
-    {:ok, %{}}
-  end
+  
 
-  def terminate(reason, state) do
-    super(reason, state) # will call Locker.Server.terminate/2.
-  end
-end</code></pre>
-
-        </section>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-        <footer class="footer">
+  
+    <footer class="footer">
       <p>
         <span class="line">
           Built using
