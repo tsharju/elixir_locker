@@ -1,4 +1,4 @@
 %{"earmark": {:hex, :earmark, "0.1.17"},
-  "ex_doc": {:hex, :ex_doc, "0.7.2"},
-  "locker": {:git, "https://github.com/wooga/locker.git", "2bd92ba1a9395151a80630fcba3fbf6a5627930a", [branch: "master"]},
-  "proper": {:git, "git://github.com/manopapad/proper.git", "420c40dce61c5a0edd2e2dd7e72b7695e186b6a9", []}}
+  "ex_doc": {:hex, :ex_doc, "0.10.0"},
+  "locker": {:hex, :locker, "1.0.8"},
+  "proper": {:hex, :proper, "1.1.1-beta"}}
